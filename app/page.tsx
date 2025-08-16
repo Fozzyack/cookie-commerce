@@ -5,10 +5,11 @@ import Hero from "@/components/Hero";
 import Menu from "@/components/Menu";
 import Navbar from "@/components/Navbar";
 import { useState } from "react";
+import { useCart } from "@/components/ClientCartProvider";
 
 export default function Home() {
     const [items, setItems] = useState<number>(0)
-    const [cart, setCart] = useState<CookieType[]>([])
+    const {cart, setCart} = useCart();
 
     console.log(cart);
     return (
