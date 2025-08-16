@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { SetStateAction, useEffect } from "react";
+import React, { SetStateAction } from "react";
 import { formatPrice } from "@/lib/cookiePrice";
 import Link from "next/link";
 

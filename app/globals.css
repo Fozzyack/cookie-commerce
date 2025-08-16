@@ -103,6 +103,7 @@
         transform: translateY(8px);
     }
 }
+
 .animate-gentle {
     animation: animate-sooth 2s ease-in-out infinite;
 }

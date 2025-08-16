@@ -2,12 +2,11 @@
 
 import React, { createContext, ReactNode, SetStateAction, useContext, useState } from "react"
 
-
-
 type CartContextType = {
     cart : CookieType[];
     setCart: React.Dispatch<SetStateAction<CookieType[]>>
 }
+
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const useCart = () => {
