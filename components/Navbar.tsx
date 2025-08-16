@@ -1,12 +1,13 @@
 "use client"
 import Link from "next/link";
-import { SetStateAction } from "react";
+import { SetStateAction, useState } from "react";
+import CartModal from "./CartModal";
 
 
 const LINKS = [
     {
-        name: "Products",
-        href: "#products"
+        name: "Menu",
+        href: "#menu"
     },
     {
         name: "About",
@@ -19,13 +20,22 @@ const LINKS = [
 ]
 
 
-const Navbar = ({ page, items, setItems }: { page: number, items: number, setItems: React.Dispatch<SetStateAction<number>>}) => {
+const Navbar = ({ page, items, setItems, cart, setCart}
+: 
+{ page: number, items: number, setItems: React.Dispatch<SetStateAction<number>>, 
+    cart: CookieType[], setCart : React.Dispatch<SetStateAction<CookieType[]>>}) => {
+
+    const [showCart, setShowCart] = useState<boolean>(false);
+    
+    const changeShowCart = () => {
+        setShowCart(prev => !prev);
+    }
 
     return (
-        <header className="sticky w-full top-0 z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+        <header className="sticky w-full top-0 z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border fade-in-down animation-delay-400">
             <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
                 <Link href="/">
-                    <h1 className="text-2xl font-bold text-foreground">Sweet Treats Bakery</h1>
+                    <h1 className="text-2xl font-bold text-foreground">Crumb and Co.</h1>
                 </Link>
                 { /* Home Page */
                     page == 1 &&
@@ -42,13 +52,18 @@ const Navbar = ({ page, items, setItems }: { page: number, items: number, setIte
                 }
                 {
                     page == 1 &&
-                    <button className="px-5 py-2 bg-primary text-primary-foreground rounded-lg">
-                        Cart ({items})
-                    </button>
+                    <div className="relative">
+                        <button onClick={changeShowCart} className="px-5 py-2 bg-primary text-primary-foreground rounded-lg hover:scale-110">
+                            Cart ({items})
+                        </button>
+                        {
+                            showCart && <CartModal setShowCart={setShowCart} cart={cart} setCart={setCart} setItems={setItems}/>
+                        }
+                    </div>
                 }
                 {/* Checkout Page */
                     page == 2 &&
-                    <Link href="/">
+                    <Link href="/" className="">
                         <button className="hover:scale-105 transition-all duration-300">
                             Back To Shop
                         </button>

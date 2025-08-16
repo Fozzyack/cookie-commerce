@@ -64,8 +64,33 @@
     }
 }
 
+@keyframes moveIn-right{
+    from {
+        transform: translateX(-50px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+@keyframes moveIn-left{
+    from {
+        transform: translateX(50px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
 .fade-in-down{
     animation: fadeIn 1.5s ease, moveIn-down 1s ease;
+}
+
+.fade-in-left{
+    animation: fadeIn 1.5s ease, moveIn-left 1s ease;
+}
+
+.fade-in-right{
+    animation: fadeIn 1.5s ease, moveIn-right 1s ease;
 }
 
 
@@ -81,7 +106,11 @@
 .animate-gentle {
     animation: animate-sooth 2s ease-in-out infinite;
 }
+
 .animation-delay-200{
     animation-delay: 200ms;
 }
 
+.animation-delay-400{
+    animation-delay: 400ms;
+}
