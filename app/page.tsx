@@ -9,16 +9,16 @@ import { useCart } from "@/components/ClientCartProvider";
 
 export default function Home() {
     const [items, setItems] = useState<number>(0)
-    const {cart, setCart} = useCart();
+    const { cart, setCart } = useCart();
 
     console.log(cart);
     return (
         <main className="min-h-screen">
-            <Navbar page={1} items={items} setItems={setItems} cart={cart} setCart={setCart}/>
+            <Navbar page={1} items={items} setItems={setItems} cart={cart} setCart={setCart} />
             <div className="py-12">
                 <Hero />
                 <About />
-                <Menu setItems={setItems} setCart={setCart}/>
+                <Menu setItems={setItems} setCart={setCart} />
             </div>
             <Footer />
         </main>

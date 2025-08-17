@@ -57,14 +57,14 @@ const Navbar = ({ page, items, setItems, cart, setCart}
                             Cart ({items})
                         </button>
                         {
-                            showCart && <CartModal setShowCart={setShowCart} cart={cart} setCart={setCart} setItems={setItems}/>
+                            showCart && <CartModal cart={cart} setCart={setCart} setItems={setItems}/>
                         }
                     </div>
                 }
                 {/* Checkout Page */
                     page == 2 &&
                     <Link href="/" className="">
-                        <button className="hover:scale-105 transition-all duration-300">
+                        <button className="hover:scale-105 transition-all duration-300 bg-primary px-4 py-2 rounded-lg text-primary-foreground">
                             Back To Shop
                         </button>
                     </Link>
